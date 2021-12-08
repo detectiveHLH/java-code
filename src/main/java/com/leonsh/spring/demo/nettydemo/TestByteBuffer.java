@@ -1,7 +1,6 @@
 package com.leonsh.spring.demo.nettydemo;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -18,6 +17,7 @@ public class TestByteBuffer {
             ByteBuffer buffer = ByteBuffer.allocate(10);
             while (true) {
                 int len = channel.read(buffer);
+
                 // 代表没有内容了
                 if (len == -1) {
                     break;
