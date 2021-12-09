@@ -16,9 +16,9 @@ public class TestByteBuffer {
         try (FileChannel channel = new FileInputStream("data.txt").getChannel();) {
             ByteBuffer buffer = ByteBuffer.allocate(10);
             while (true) {
+                // 向 buffer 写入数据, 对应的是 channel.write 是从 buffer 中读数据, 写入 channel 所以叫 write
                 int len = channel.read(buffer);
-
-                // 代表没有内容了
+                // -1 代表没有内容了
                 if (len == -1) {
                     break;
                 }
