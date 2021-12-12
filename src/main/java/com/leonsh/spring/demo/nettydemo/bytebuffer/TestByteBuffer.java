@@ -1,4 +1,4 @@
-package com.leonsh.spring.demo.nettydemo;
+package com.leonsh.spring.demo.nettydemo.bytebuffer;
 
 import java.io.FileInputStream;
 import java.io.IOException;
