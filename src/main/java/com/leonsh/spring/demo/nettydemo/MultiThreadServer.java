@@ -1,5 +1,8 @@
 package com.leonsh.spring.demo.nettydemo;
 
+import com.leonsh.spring.demo.nettydemo.util.ByteBufferUtil;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -15,6 +18,7 @@ import java.util.Iterator;
  * @author leonsh
  * @date 2021-12-15 09:56
  **/
+@Slf4j
 public class MultiThreadServer {
     public static void main(String[] args) throws IOException {
         // 给主线程设置名称方便区分
@@ -30,6 +34,9 @@ public class MultiThreadServer {
         SelectionKey bossKey = ssc.register(boss, 0, null);
         bossKey.interestOps(SelectionKey.OP_ACCEPT);
 
+        // 创建固定数量的 worker
+        Worker worker = new Worker("worker-0");
+        worker.register();
         while (true) {
             boss.select();
             Iterator<SelectionKey> iterator = boss.selectedKeys().iterator();
@@ -41,15 +48,21 @@ public class MultiThreadServer {
                 if (key.isAcceptable()) {
                     SocketChannel sc = ssc.accept();
                     sc.configureBlocking(false);
+                    log.info("connected..{}", sc.getRemoteAddress());
+                    log.info("before register...{}", sc.getRemoteAddress());
+                    sc.register(worker.selector, SelectionKey.OP_READ, null);
+                    log.info("after register...{}", sc.getRemoteAddress());
                 }
             }
         }
     }
 
-    class Worker implements Runnable {
+    static class Worker implements Runnable {
         private Thread thread;
-        private Selector worker;
+        private Selector selector;
         private String name;
+        // 还未初始化
+        private volatile boolean start = false;
 
         public Worker(String name) {
             this.name = name;
@@ -57,24 +70,32 @@ public class MultiThreadServer {
 
         // 初始化线程和 selector
         public void register() throws IOException {
-            thread = new Thread(this, name);
-            thread.start();
-            worker = Selector.open();
+            if (!start) {
+                thread = new Thread(this, name);
+                thread.start();
+                selector = Selector.open();
+                start = true;
+            }
         }
 
         @Override
         public void run() {
             while (true) {
                 try {
-                    worker.select();
-                    Iterator<SelectionKey> iterator = worker.selectedKeys().iterator();
+                    selector.select();
+                    Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
                     while (iterator.hasNext()) {
                         SelectionKey key = iterator.next();
                         iterator.remove();
 
+                        // 是否可读事件
                         if (key.isReadable()) {
                             ByteBuffer buffer = ByteBuffer.allocate(16);
                             SocketChannel channel = (SocketChannel) key.channel();
+                            log.info("read...{}", channel.getRemoteAddress());
+                            channel.read(buffer);
+                            buffer.flip();
+                            ByteBufferUtil.debugAll(buffer);
                         }
                     }
                 } catch (IOException e) {

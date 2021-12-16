@@ -1,7 +1,6 @@
 package com.leonsh.spring.demo.nettydemo;
 
 import com.leonsh.spring.demo.nettydemo.util.ByteBufferUtil;
-import io.netty.buffer.ByteBuf;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
