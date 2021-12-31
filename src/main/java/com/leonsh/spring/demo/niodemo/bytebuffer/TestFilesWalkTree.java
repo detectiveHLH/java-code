@@ -1,4 +1,4 @@
-package com.leonsh.spring.demo.nettydemo.bytebuffer;
+package com.leonsh.spring.demo.niodemo.bytebuffer;
 
 import java.io.IOException;
 import java.nio.file.*;

@@ -1,4 +1,4 @@
-package com.leonsh.spring.demo.nettydemo.bytebuffer;
+package com.leonsh.spring.demo.niodemo.bytebuffer;
 
 import com.leonsh.spring.demo.nettydemo.util.ByteBufferUtil;
 import lombok.extern.slf4j.Slf4j;

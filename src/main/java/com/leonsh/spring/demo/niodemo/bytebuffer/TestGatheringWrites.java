@@ -1,8 +1,7 @@
-package com.leonsh.spring.demo.nettydemo.bytebuffer;
+package com.leonsh.spring.demo.niodemo.bytebuffer;
 
 import com.leonsh.spring.demo.nettydemo.util.ByteBufferUtil;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
