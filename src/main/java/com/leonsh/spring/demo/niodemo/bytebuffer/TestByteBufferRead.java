@@ -14,8 +14,13 @@ import java.nio.ByteBuffer;
 @Slf4j
 public class TestByteBufferRead {
     public static void main(String[] args) {
-        ByteBuffer buffer = ByteBuffer.allocate(10);
+        ByteBuffer buffer = ByteBuffer.allocate(16);
         buffer.put(new byte[]{'a', 'b', 'c', 'd'});
+        ByteBufferUtil.debugAll(buffer);
+
+        System.out.println(buffer.get());
+
+        log.info("{}", buffer);
 
         // 切换到读模式
         buffer.flip();
