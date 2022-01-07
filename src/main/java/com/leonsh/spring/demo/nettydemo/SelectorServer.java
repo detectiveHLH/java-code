@@ -28,7 +28,7 @@ public class SelectorServer {
         // 我们可以使用 interestOps 来表明只处理有连接请求的事件
         serverSocketChannelKey.interestOps(SelectionKey.OP_ACCEPT);
 
-        System.out.printf("serverSocketChannel %s\n", serverSocketChannelKey);
+        System.out.printf("serverSocketChannelKey %s\n", serverSocketChannelKey);
 
         while (true) {
             // 没有事件发生, 线程会阻塞; 有事件发生, 就会让线程继续执行
@@ -38,9 +38,9 @@ public class SelectorServer {
 
             // 通过 selectedKeys 包含了所有发生的事件, 可能会包含 READ 或者 WRITE
             Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+            System.out.println("before: " + selector.selectedKeys().size());
             while (iterator.hasNext()) {
                 SelectionKey key = iterator.next();
-                iterator.remove();
                 System.out.printf("selected key %s\n", key);
 
                 // 这里需要进行事件区分
@@ -56,7 +56,7 @@ public class SelectorServer {
                     // 这个 socketChannel 也需要注册到 selector 上, 相当于把控制权交给 selector
                     SelectionKey socketChannelKey = socketChannel.register(selector, 0);
                     socketChannelKey.interestOps(SelectionKey.OP_READ);
-                    System.out.printf("get socketChannel %s\n", socketChannel);
+                    System.out.printf("get socketChannel %s\n", socketChannelKey);
                 } else if (key.isReadable()) {
                     System.out.println("get readable event");
 
@@ -65,8 +65,10 @@ public class SelectorServer {
                     channel.read(buf);
                     buf.flip();
                     ByteBufferUtil.debugRead(buf);
-//                    key.cancel();
+                    key.cancel();
                 }
+                System.out.println("after: " + selector.selectedKeys().size());
+                iterator.remove();
             }
         }
     }
