@@ -1,4 +1,4 @@
-package com.leonsh.spring.demo.leetcode.common;
+package com.leonsh.spring.demo.util;
 
 public class ListNode {
     public int val;
