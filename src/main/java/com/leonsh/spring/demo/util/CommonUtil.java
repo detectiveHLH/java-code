@@ -1,5 +1,7 @@
 package com.leonsh.spring.demo.util;
 
+import java.util.Random;
+
 /**
  * CommonUtil
  *
@@ -19,6 +21,20 @@ public class CommonUtil {
             res[i] = i + 1;
         }
         return res;
+    }
+
+    public static void shuffle(int[] array) {
+        Random random = new Random();
+        for (int i = array.length; i >= 1; i--) {
+            // 实现随机的位置调换
+            swap(array, i - 1, random.nextInt(i));
+        }
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
     public static ListNode makeListNode(int[] list) {
