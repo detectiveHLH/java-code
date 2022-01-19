@@ -2,9 +2,13 @@ package com.leonsh.spring.demo.leetcode;
 
 import org.springframework.util.StopWatch;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * LeetCode3
  * - 暴力解法
+ * - 滑动窗口
  *
  * @author leonsh
  * @date 2022-01-19 09:44
@@ -38,13 +42,36 @@ public class LeetCode3 {
         return maxLen;
     }
 
+    /**
+     * 滑动窗口
+     */
+//    public static int lengthOfLongestSubstring01(String s) {
+//        Map<Character, Integer> map = new HashMap<>();
+//
+//        int left = 0;
+//        for (int i = 0; i < s.length(); i++) {
+//            Character c = s.charAt(i);
+//            if (map.containsKey(c)) {
+//                left = Math.max(left, map.get(c) + 1);
+//                continue;
+//            }
+//
+//            map.put()
+//        }
+//    }
+
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
         // 执行关键方法
         String str = "";
+
+        // 暴力解法
         int result = lengthOfLongestSubstring(str);
+        // 滑动窗口
+//        int result = lengthOfLongestSubstring01(str);
+
         System.out.println("结果： " + result);
 
         stopWatch.stop();
