@@ -67,6 +67,6 @@ public class LeetCode61 {
         }
 
         stopWatch.stop();
-        System.out.println(stopWatch.prettyPrint());
+        System.out.printf("耗时: %sms", stopWatch.getTotalTimeMillis());
     }
 }
