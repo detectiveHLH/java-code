@@ -1,7 +1,7 @@
 package com.leonsh.spring.demo.util;
 
 /**
- * Node
+ * Node 类
  */
 public class Node {
     int val;
