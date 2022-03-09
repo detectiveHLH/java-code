@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
- * LongAdderDemo
+ * LongAdder 和 AtomicLong 的性能对比
  *
  * @author leonsh
  * @date 2022-03-09 12:55
