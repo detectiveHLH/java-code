@@ -1,1 +1,1 @@
-git add . && git commit -m "update" && git push origin main && git push gitee master
+git add . && git commit -m "update" && git push origin main && git push gitee main
