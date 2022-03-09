@@ -1,5 +1,8 @@
 package com.leonsh.spring.demo.util;
 
+/**
+ * Node
+ */
 public class Node {
     int val;
     Node next;
