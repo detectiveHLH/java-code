@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-boot-template
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: KJNXmOo80nek28lTKZn21RlC4a0SKGS
+    url: jdbc:mysql://localhost:3306/java-code?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+
+# mapper文件配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

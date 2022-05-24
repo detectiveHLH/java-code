@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leonsh.java.code.servicedemo.dao.HelloMapper">
+
+    <resultMap id="BaseResultMap" type="com.leonsh.java.code.servicedemo.model.entity.User">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="wechat_open_id" jdbcType="VARCHAR" property="wechatOpenId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>
+        <result column="modify_time" jdbcType="BIGINT" property="modifyTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, wechat_open_id, status, create_time, modify_time
+    </sql>
+
+
+    <insert id="insertSelective" parameterType="com.leonsh.java.code.servicedemo.model.entity.User" >
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="wechatOpenId != null">
+                wechat_open_id,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="wechatOpenId != null">
+                #{wechatOpenId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=BIGINT},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+</mapper>
