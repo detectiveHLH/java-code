@@ -15,7 +15,6 @@ public class WithoutAdapterPattern {
         newInterface.newExecute();
     }
 
-
     public static interface OldInterface {
         /**
          * 老版本接口
