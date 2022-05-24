@@ -7,7 +7,6 @@ package com.leonsh.spring.demo.designpattern.adapter;
  * @date 2020-11-29 21:36
  **/
 public class AdapterPattern {
-
     public static void main(String[] args) {
         NewInterface oldInterface = new NewInterfaceAdapter(new OldInterfaceImpl());
         NewInterface newInterface = new NewInterfaceImpl();
