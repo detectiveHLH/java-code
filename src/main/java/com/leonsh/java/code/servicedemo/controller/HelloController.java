@@ -1,5 +1,6 @@
 package com.leonsh.java.code.servicedemo.controller;
 
+import com.leonsh.java.code.servicedemo.Result;
 import com.leonsh.java.code.servicedemo.model.dto.UserDTO;
 import com.leonsh.java.code.servicedemo.service.HelloService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class HelloController {
     }
 
     @GetMapping("users/{userId}")
-    public UserDTO hello(@PathVariable("userId") Long userId) {
-        return helloService.getUserById(userId);
+    public Result<UserDTO> hello(@PathVariable("userId") Long userId) throws Exception {
+        return Result.success(helloService.getUserById(userId));
     }
 
     @PostMapping("users")

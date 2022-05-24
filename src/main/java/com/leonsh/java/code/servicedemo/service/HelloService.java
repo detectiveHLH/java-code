@@ -15,7 +15,7 @@ public interface HelloService {
      * @param userId 用户 ID
      * @return 用户数据
      */
-    UserDTO getUserById(Long userId);
+    UserDTO getUserById(Long userId) throws Exception;
 
     UserDTO createUser(UserDTO userDTO);
 }

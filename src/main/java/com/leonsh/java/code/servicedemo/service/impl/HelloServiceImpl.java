@@ -1,9 +1,11 @@
 package com.leonsh.java.code.servicedemo.service.impl;
 
+import com.leonsh.java.code.servicedemo.constant.CommonEnum;
 import com.leonsh.java.code.servicedemo.dao.HelloMapper;
 import com.leonsh.java.code.servicedemo.model.dto.UserDTO;
 import com.leonsh.java.code.servicedemo.model.entity.User;
 import com.leonsh.java.code.servicedemo.service.HelloService;
+import com.leonsh.java.code.util.BusinessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +32,9 @@ public class HelloServiceImpl implements HelloService {
                 .modifyTime(user.getModifyTime())
                 .status(user.getStatus())
                 .build();
-        return userDTO;
+        throw new BusinessException(CommonEnum.BODY_NOT_MATCH);
+
+//        return userDTO;
     }
 
     @Override
