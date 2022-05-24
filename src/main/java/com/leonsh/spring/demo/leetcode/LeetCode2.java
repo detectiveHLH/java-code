@@ -2,7 +2,6 @@ package com.leonsh.spring.demo.leetcode;
 
 import com.leonsh.spring.demo.util.CommonUtil;
 import com.leonsh.spring.demo.util.ListNode;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.util.StopWatch;
 
 public class LeetCode2 {

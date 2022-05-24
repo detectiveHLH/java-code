@@ -3,7 +3,6 @@ package com.leonsh.spring.demo.leetcode;
 import com.leonsh.spring.demo.util.CommonUtil;
 import com.leonsh.spring.demo.util.ListNode;
 import org.springframework.util.StopWatch;
-import scala.Int;
 
 import java.util.*;
 
