@@ -6,6 +6,7 @@ import com.leonsh.java.code.servicedemo.model.dto.UserDTO;
 import com.leonsh.java.code.servicedemo.model.entity.User;
 import com.leonsh.java.code.servicedemo.service.HelloService;
 import com.leonsh.java.code.servicedemo.util.BusinessException;
+import com.leonsh.java.code.servicedemo.util.ObjectUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,16 +26,15 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public UserDTO getUserById(Long userId) throws Exception {
         User user = helloMapper.selectById(userId);
-        UserDTO userDTO = UserDTO.builder()
-                .id(user.getId())
-                .wechatOpenId(user.getWechatOpenId())
-                .createTime(user.getCreateTime())
-                .modifyTime(user.getModifyTime())
-                .status(user.getStatus())
-                .build();
-        throw new BusinessException(CommonEnum.BODY_NOT_MATCH);
-
-//        return userDTO;
+        UserDTO userDTO = ObjectUtils.convert(user, UserDTO.class);
+//        UserDTO userDTO = UserDTO.builder()
+//                .id(user.getId())
+//                .wechatOpenId(user.getWechatOpenId())
+//                .createTime(user.getCreateTime())
+//                .modifyTime(user.getModifyTime())
+//                .status(user.getStatus())
+//                .build();
+        return userDTO;
     }
 
     @Override

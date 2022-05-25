@@ -22,7 +22,7 @@ public class AbstractObject {
      * @throws Exception 业务异常
      */
     public <T> T clone(Class<T> clazz) throws Exception {
-        T target = clazz.newInstance();
+        T target = clazz.getDeclaredConstructor().newInstance();
         BeanCopierUtils.copyProperties(this, target);
         return target;
     }

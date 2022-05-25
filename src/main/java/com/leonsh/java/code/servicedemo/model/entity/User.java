@@ -3,6 +3,7 @@ package com.leonsh.java.code.servicedemo.model.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.leonsh.java.code.servicedemo.util.AbstractObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("user")
-public class User {
+public class User extends AbstractObject {
     /**
      * 主键id
      */

@@ -18,7 +18,7 @@ public class BeanCopierUtils {
     /**
      * BeanCopier缓存
      */
-    public static Map<String, BeanCopier> beanCopierCacheMap = new HashMap<String, BeanCopier>();
+    public static Map<String, BeanCopier> beanCopierCacheMap = new HashMap<>();
 
     public static void copyProperties(Object source, Object target) {
         BeanCopier beanCopier;

@@ -13,10 +13,14 @@ public class ObjectUtils {
     /**
      * 转换集合
      *
-     * @param sourceList  源集合
-     * @param targetClazz 目标集合元素类型
+     * @param sourceObject 源对象
+     * @param targetClazz  目标集合元素类型
      * @return 转换后的集合
      */
+    public static <T> T convert(AbstractObject sourceObject, Class<T> targetClazz) throws Exception {
+        return sourceObject.clone(targetClazz);
+    }
+
     public static <T> List<T> convertList(List<? extends AbstractObject> sourceList, Class<T> targetClazz) throws Exception {
         List<T> targetList = new ArrayList<>();
         for (AbstractObject sourceObject : sourceList) {
