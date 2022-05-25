@@ -1,4 +1,4 @@
-package com.leonsh.java.code.util;
+package com.leonsh.java.code.servicedemo.util;
 
 /**
  * 领域模型对象的类型

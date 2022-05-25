@@ -1,4 +1,4 @@
-package com.leonsh.java.code.util;
+package com.leonsh.java.code.servicedemo.util;
 
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.stereotype.Component;

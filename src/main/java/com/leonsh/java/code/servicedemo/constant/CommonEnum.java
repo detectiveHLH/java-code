@@ -1,7 +1,7 @@
 package com.leonsh.java.code.servicedemo.constant;
 
 
-import com.leonsh.java.code.util.BaseException;
+import com.leonsh.java.code.servicedemo.util.BaseException;
 
 public enum CommonEnum implements BaseException {
     // 数据操作错误定义

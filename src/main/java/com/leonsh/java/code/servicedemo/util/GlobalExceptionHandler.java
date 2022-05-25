@@ -1,4 +1,4 @@
-package com.leonsh.java.code.util;
+package com.leonsh.java.code.servicedemo.util;
 
 import com.leonsh.java.code.servicedemo.Result;
 import org.springframework.web.bind.annotation.ControllerAdvice;

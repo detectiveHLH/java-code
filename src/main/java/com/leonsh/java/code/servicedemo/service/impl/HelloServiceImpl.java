@@ -5,7 +5,7 @@ import com.leonsh.java.code.servicedemo.dao.HelloMapper;
 import com.leonsh.java.code.servicedemo.model.dto.UserDTO;
 import com.leonsh.java.code.servicedemo.model.entity.User;
 import com.leonsh.java.code.servicedemo.service.HelloService;
-import com.leonsh.java.code.util.BusinessException;
+import com.leonsh.java.code.servicedemo.util.BusinessException;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,4 +1,4 @@
-package com.leonsh.java.code.util;
+package com.leonsh.java.code.servicedemo.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
