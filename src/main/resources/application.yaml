@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   application:
-    name: spring-boot-template
+    name: java-code
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
