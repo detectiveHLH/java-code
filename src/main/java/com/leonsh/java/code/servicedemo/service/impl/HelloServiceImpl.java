@@ -23,7 +23,7 @@ public class HelloServiceImpl implements HelloService {
     }
 
     @Override
-    public UserDTO getUserById(Long userId) {
+    public UserDTO getUserById(Long userId) throws Exception {
         User user = helloMapper.selectById(userId);
         UserDTO userDTO = UserDTO.builder()
                 .id(user.getId())
