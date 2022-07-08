@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.leonsh.java.code.servicedemo.dao.HelloMapper">
+<mapper namespace="com.leonsh.java.code.framework.springservicedemo.dao.HelloMapper">
 
-    <resultMap id="BaseResultMap" type="com.leonsh.java.code.servicedemo.model.entity.User">
+    <resultMap id="BaseResultMap" type="com.leonsh.java.code.framework.springservicedemo.model.entity.User">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="wechat_open_id" jdbcType="VARCHAR" property="wechatOpenId"/>
         <result column="status" jdbcType="INTEGER" property="status"/>
@@ -16,7 +16,7 @@
     </sql>
 
 
-    <insert id="insertSelective" parameterType="com.leonsh.java.code.servicedemo.model.entity.User" >
+    <insert id="insertSelective" parameterType="com.leonsh.java.code.framework.springservicedemo.model.entity.User" >
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
